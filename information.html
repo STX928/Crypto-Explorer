@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Price Guide - Your Trusted Resource</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/infostyle.css">
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Header Nav -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">₿</span> CryptoExplorer
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="test.html">Top Cryptocurrency</a></li>
+                <li><a href="blockchain.html">Blockchain</a></li>
+                <li><a href="information.html" class="nav-active">Price Tracking Guide</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+    <!-- Header Nav -->
+
+
+
+
+
+
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-white mb-4">Cryptocurrency Price Tracking Guide</h1>
+            <p class="text-xl text-blue-200">Your Ultimate Resource for Crypto Prices and Buying</p>
+        </header>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card p-6 rounded-lg shadow-xl">
+                <img src="images/trusted.jpg" alt="Trusted Websites" class="w-full rounded-lg mb-4">
+                <h2 class="text-2xl font-semibold mb-3">Trusted Price Tracking Websites</h2>
+                <ul class="list-disc list-inside text-blue-100">
+                    <li><a class="site-link" href="https://coinmarketcap.com/">CoinMarketCap</a> - Comprehensive crypto data</li>
+                    <li><a class="site-link" href="https://www.coingecko.com/">CoinGecko</a> - Detailed price tracking</li>
+                    <li><a class="site-link" href="https://www.tradingview.com/">TradingView</a> - Advanced charting tools</li>
+                    <li><a class="site-link" href="https://www.cryptocompare.com/">CryptoCompare</a> - In-depth market analysis</li>
+                </ul>
+            </div>
+
+            <div class="card p-6 rounded-lg shadow-xl">
+                <img src="images/bitcoin.jpg" alt="Buying Cryptocurrencies" class="w-full rounded-lg mb-4">
+                <h2 class="text-2xl font-semibold mb-3">How to Buy Cryptocurrencies</h2>
+                <ol class="list-decimal list-inside text-blue-100">
+                    <li>Choose a reputable exchange (Coinbase, Binance, Kraken)</li>
+                    <li>Create and verify your account</li>
+                    <li>Link payment method</li>
+                    <li>Research and select cryptocurrency</li>
+                    <li>Make your purchase</li>
+                    <li>Consider secure storage options</li>
+                </ol>
+            </div>
+
+            <div class="card p-6 rounded-lg shadow-xl">
+                <img src="images/safety and privecy.jpg" alt="Safety Tips" class="w-full rounded-lg mb-4">
+                <h2 class="text-2xl font-semibold mb-3">Safety and Security Tips</h2>
+                <ul class="list-disc list-inside text-blue-100">
+                    <li>Use two-factor authentication</li>
+                    <li>Store majority of funds in cold wallet</li>
+                    <li>Never share private keys</li>
+                    <li>Be wary of phishing sites</li>
+                    <li>Diversify your investments</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="mt-12 text-center">
+            <h2 class="text-3xl font-bold mb-6">Top Cryptocurrencies to <a class="link-to" href="test.html">Watch</a></h2>
+        </section>
+
+        <footer class="mt-12 text-center text-blue-300">
+            <p>&copy; 2025 All Rights Reserved By Sajad
+                Nazar</p>
+            
+        </footer>
+    </div>
+
+    <script>
+        // Simple interactive element
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.boxShadow = '0 0 20px rgba(45, 132, 247, 0.6)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

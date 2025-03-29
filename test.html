@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+    rel="stylesheet"
+    />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/teststyle.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="" />
+    <title>Top 10 Cryptocurrencies</title>
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">₿</span> CryptoExplorer
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="test.html" class="nav-active">Top Cryptocurrency</a></li>
+                <li><a href="blockchain.html">Blockchain</a></li>
+                <li><a href="information.html">Price Tracking Guide</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+    
+    <header>
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <h1>Top 10 Cryptocurrencies</h1>
+            <p class="subtitle">Explore the world's leading digital currencies, their origins, and practical applications</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search cryptocurrencies...">
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" data-sort="rank">By Rank</button>
+            <button class="tab" data-sort="name">Alphabetical</button>
+            <button class="tab" data-sort="year">By Launch Year</button>
+        </div>
+        
+        <div class="crypto-grid" id="cryptoGrid">
+            <!-- Cryptocurrency cards will be added here via JavaScript -->
+        </div>
+    </div>
+    
+    
+    <footer>
+        <p>&copy; 2025 All Rights Reserved By Sajad
+            Nazar
+    </footer>
+    
+    <div class="back-to-top" id="backToTop">↑</div>
+    
+    <script>
+        // Cryptocurrency data
+        const cryptoData = [
+            {
+                name: "Bitcoin",
+                symbol: "BTC",
+                icon: "₿",
+                rank: 1,
+                year: 2009,
+                founder: "Satoshi Nakamoto",
+                origin: "Bitcoin was created in 2009 by an anonymous person or group using the pseudonym Satoshi Nakamoto in response to the 2008 financial crisis. It was the first cryptocurrency and introduced blockchain technology to the world.",
+                uses: "Bitcoin functions primarily as a store of value (digital gold) and a medium of exchange. It's used for cross-border transactions, remittances, and as a hedge against inflation and currency devaluation."
+            },
+            {
+                name: "Ethereum",
+                symbol: "ETH",
+                icon: "Ξ",
+                rank: 2,
+                year: 2015,
+                founder: "Vitalik Buterin",
+                origin: "Ethereum was proposed in 2013 by programmer Vitalik Buterin and went live in 2015. It expanded on Bitcoin's blockchain concept by adding smart contract functionality, allowing developers to build decentralized applications (dApps).",
+                uses: "Ethereum powers thousands of decentralized applications, including DeFi (Decentralized Finance) protocols, NFT marketplaces, DAOs (Decentralized Autonomous Organizations), and serves as the foundation for many other cryptocurrencies built on its platform."
+            },
+            {
+                name: "Tether",
+                symbol: "USDT",
+                icon: "₮",
+                rank: 3,
+                year: 2014,
+                founder: "Brock Pierce, Reeve Collins, and Craig Sellars",
+                origin: "Tether was launched in 2014 as 'Realcoin' before rebranding. It was created to combine the advantages of cryptocurrencies (fast transactions, digital nature) with the stability of fiat currencies.",
+                uses: "As a stablecoin pegged to the US dollar, Tether is used to minimize volatility in crypto trading, facilitate exchanges between crypto and fiat currencies, and provide a stable store of value in the crypto ecosystem."
+            },
+            {
+                name: "BNB",
+                symbol: "BNB",
+                icon: "B",
+                rank: 4,
+                year: 2017,
+                founder: "Changpeng Zhao (CZ)",
+                origin: "BNB was created by Binance, one of the world's largest cryptocurrency exchanges, in 2017. It was initially launched as an ERC-20 token on Ethereum before migrating to Binance's own blockchain, Binance Chain (later Binance Smart Chain).",
+                uses: "BNB is used for discounted trading fees on Binance, participation in token sales on Binance Launchpad, payment for goods and services, and as the native currency for applications built on the BNB Chain ecosystem."
+            },
+            {
+                name: "Solana",
+                symbol: "SOL",
+                icon: "S",
+                rank: 5,
+                year: 2020,
+                founder: "Anatoly Yakovenko",
+                origin: "Solana was founded by Anatoly Yakovenko in 2017 and launched its mainnet in 2020. It was designed to solve the scalability issues faced by earlier blockchains, focusing on high throughput and low transaction costs.",
+                uses: "Solana is used for building fast, scalable decentralized applications, supporting NFT marketplaces, DeFi platforms, and gaming ecosystems. Its high-speed, low-cost transactions make it suitable for applications requiring frequent microtransactions."
+            },
+            {
+                name: "XRP",
+                symbol: "XRP",
+                icon: "✗",
+                rank: 6,
+                year: 2012,
+                founder: "Chris Larsen, Jed McCaleb, and Arthur Britto",
+                origin: "XRP was created in 2012 by Ripple Labs (originally called OpenCoin). Unlike Bitcoin, XRP wasn't designed to be a digital currency but rather a token for facilitating fast international payments and exchanges between different currencies.",
+                uses: "XRP is primarily designed for financial institutions to facilitate cross-border payments and currency exchanges with minimal fees and settlement times. It serves as a bridge currency in the Ripple payment protocol."
+            },
+            {
+                name: "Cardano",
+                symbol: "ADA",
+                icon: "₳",
+                rank: 7,
+                year: 2017,
+                founder: "Charles Hoskinson",
+                origin: "Cardano was founded by Ethereum co-founder Charles Hoskinson in 2015 and launched in 2017. It was developed as a third-generation blockchain platform based on scientific philosophy and peer-reviewed academic research.",
+                uses: "Cardano provides a platform for developing smart contracts and decentralized applications with a focus on security, scalability, and sustainability. It aims to provide financial services to unbanked populations and solutions for supply chain tracking, educational credentials, and more."
+            },
+            {
+                name: "Dogecoin",
+                symbol: "DOGE",
+                icon: "Ð",
+                rank: 8,
+                year: 2013,
+                founder: "Billy Markus and Jackson Palmer",
+                origin: "Dogecoin was created in 2013 by software engineers Billy Markus and Jackson Palmer as a joke, based on the popular 'Doge' Shiba Inu meme. Despite its humorous origins, it gained a dedicated community and significant value.",
+                uses: "Initially used for tipping content creators online, Dogecoin has evolved into a medium for charitable donations, merchandise purchases, and as a speculative investment. Its community-driven nature has also made it a popular choice for fundraising campaigns."
+            },
+            {
+                name: "Polygon",
+                symbol: "MATIC",
+                icon: "P",
+                rank: 9,
+                year: 2019,
+                founder: "Jaynti Kanani, Sandeep Nailwal, and Anurag Arjun",
+                origin: "Polygon (formerly Matic Network) was founded in 2017 and launched in 2019 to address Ethereum's scalability issues. It provides a framework for building and connecting Ethereum-compatible blockchain networks.",
+                uses: "Polygon serves as a scaling solution for Ethereum, enabling faster and cheaper transactions. It's used for developing and running decentralized applications, DeFi protocols, NFT platforms, and games with improved user experience and lower costs."
+            },
+            {
+                name: "Avalanche",
+                symbol: "AVAX",
+                icon: "A",
+                rank: 10,
+                year: 2020,
+                founder: "Emin Gün Sirer",
+                origin: "Avalanche was founded by Cornell University professor Emin Gün Sirer and launched in 2020. It was designed to address blockchain trilemma issues (scalability, security, decentralization) through its unique consensus mechanisms.",
+                uses: "Avalanche provides a platform for building custom blockchains and decentralized applications with high throughput. It's used for DeFi applications, enterprise blockchain solutions, asset tokenization, and cross-chain interoperability projects."
+            }
+        ];
+
+        // Function to create cryptocurrency cards
+        function createCryptoCards(data) {
+            const grid = document.getElementById('cryptoGrid');
+            grid.innerHTML = ''; // Clear existing cards
+            
+            data.forEach(crypto => {
+                const card = document.createElement('div');
+                card.className = 'crypto-card';
+                
+                card.innerHTML = `
+                    <div class="crypto-icon">${crypto.icon}</div>
+                    <div class="crypto-name">${crypto.name}</div>
+                    <span class="crypto-symbol">${crypto.symbol}</span>
+                    <div class="section-title">Origin</div>
+                    <p class="crypto-details">${crypto.origin}</p>
+                    <div class="section-title">Uses</div>
+                    <p class="crypto-details">${crypto.uses}</p>
+                    <div class="section-title">Founded</div>
+                    <p class="crypto-details">Created in ${crypto.year} by ${crypto.founder}</p>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+        
+        // Initial load
+        createCryptoCards(cryptoData);
+        
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Sort data based on selected criterion
+                const sortType = this.getAttribute('data-sort');
+                let sortedData = [...cryptoData];
+                
+                if (sortType === 'rank') {
+                    sortedData.sort((a, b) => a.rank - b.rank);
+                } else if (sortType === 'name') {
+                    sortedData.sort((a, b) => a.name.localeCompare(b.name));
+                } else if (sortType === 'year') {
+                    sortedData.sort((a, b) => a.year - b.year);
+                }
+                
+                createCryptoCards(sortedData);
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            if (searchTerm.trim() === '') {
+                createCryptoCards(cryptoData);
+                return;
+            }
+            
+            const filteredData = cryptoData.filter(crypto => 
+                crypto.name.toLowerCase().includes(searchTerm) || 
+                crypto.symbol.toLowerCase().includes(searchTerm)
+            );
+            
+            createCryptoCards(filteredData);
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html> 
